@@ -12,3 +12,6 @@ Finished building: default.size.stdout
  
 Finished building: stm32f4_baremetal_led_blink.list
  
+
+00:28:28 Build Finished. 0 errors, 0 warnings. (took 393ms)
+

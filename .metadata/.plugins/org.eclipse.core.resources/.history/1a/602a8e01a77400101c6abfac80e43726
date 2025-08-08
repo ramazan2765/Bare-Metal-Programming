@@ -1,0 +1,63 @@
+#include <stdint.h>
+#define RCC_BASE        0x40023800U
+#define RCC_AHB1ENR     (*(volatile unsigned int *)(RCC_BASE + 0x30))
+
+#define GPIOA_BASE      0x40020000U
+#define GPIOA_MODER     (*(volatile unsigned int *)(GPIOA_BASE + 0x00))
+#define GPIOA_OTYPER    (*(volatile unsigned int *)(GPIOA_BASE + 0x04))
+#define GPIOA_OSPEEDR   (*(volatile unsigned int *)(GPIOA_BASE + 0x08))
+#define GPIOA_PUPDR     (*(volatile unsigned int *)(GPIOA_BASE + 0x0C))
+#define GPIOA_ODR       (*(volatile unsigned int *)(GPIOA_BASE + 0x14))
+
+void delay(volatile unsigned int count);
+
+int main(void)
+{
+    // 1. Enable GPIOA clock
+    RCC_AHB1ENR |= 0x1;
+
+    // 2. Configure PA5, PA6, PA7 as output (01)
+    for (int pin = 5; pin <= 7; pin++)
+    {
+        GPIOA_MODER &= ~(0x3 << (pin * 2));    // Clear mode bits
+        GPIOA_MODER |=  (0x1 << (pin * 2));    // Set output mode
+    }
+
+    // 3. Output type push-pull for PA5, PA6, PA7
+    GPIOA_OTYPER &= ~((1 << 5) | (1 << 6) | (1 << 7));
+
+    // 4. Medium speed for PA5, PA6, PA7
+    for (int pin = 5; pin <= 7; pin++)
+    {
+        GPIOA_OSPEEDR &= ~(0x3 << (pin * 2));
+        GPIOA_OSPEEDR |=  (0x1 << (pin * 2));
+    }
+
+    // 5. No pull-up/pull-down for PA5, PA6, PA7
+    for (int pin = 5; pin <= 7; pin++)
+    {
+        GPIOA_PUPDR &= ~(0x3 << (pin * 2));
+    }
+
+    while(1)
+    {
+        // Turn LEDs on one by one
+        for (int pin = 5; pin <= 7; pin++)
+        {
+            GPIOA_ODR |= (1 << pin);  // LED ON
+            delay(300000);
+        }
+
+        // Turn LEDs off one by one
+        for (int pin = 5; pin <= 7; pin++)
+        {
+            GPIOA_ODR &= ~(1 << pin); // LED OFF
+            delay(300000);
+        }
+    }
+}
+
+void delay(volatile unsigned int count)
+{
+    while(count--) { }
+}
