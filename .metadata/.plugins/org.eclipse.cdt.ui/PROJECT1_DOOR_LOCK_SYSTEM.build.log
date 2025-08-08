@@ -1,0 +1,20 @@
+22:16:00 **** Incremental Build of configuration Debug for project PROJECT1_DOOR_LOCK_SYSTEM ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Drivers/OLED -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "PROJECT1_DOOR_LOCK_SYSTEM.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\ramaz\STM32CubeIDE\workspace_1.19.0\PROJECT1_DOOR_LOCK_SYSTEM\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PROJECT1_DOOR_LOCK_SYSTEM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PROJECT1_DOOR_LOCK_SYSTEM.elf
+ 
+arm-none-eabi-size  PROJECT1_DOOR_LOCK_SYSTEM.elf 
+arm-none-eabi-objdump -h -S PROJECT1_DOOR_LOCK_SYSTEM.elf  > "PROJECT1_DOOR_LOCK_SYSTEM.list"
+   text	   data	    bss	    dec	    hex	filename
+  27768	    100	   3364	  31232	   7a00	PROJECT1_DOOR_LOCK_SYSTEM.elf
+arm-none-eabi-objcopy  -O ihex PROJECT1_DOOR_LOCK_SYSTEM.elf  "PROJECT1_DOOR_LOCK_SYSTEM.hex"
+Finished building: default.size.stdout
+ 
+Finished building: PROJECT1_DOOR_LOCK_SYSTEM.hex
+Finished building: PROJECT1_DOOR_LOCK_SYSTEM.list
+ 
+ 
+
+22:16:01 Build Finished. 0 errors, 0 warnings. (took 963ms)
+
