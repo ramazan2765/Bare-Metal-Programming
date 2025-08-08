@@ -1,5 +1,5 @@
 
-stm32_register_programming_ led_pattern.elf:     file format elf32-littlearm
+stm32_led_pattern_register_programming.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
@@ -39,13 +39,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_line   00000585  00000000  00000000  000026c1  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00003e42  00000000  00000000  00002c46  2**0
+ 18 .debug_str    00003e41  00000000  00000000  00002c46  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  00006a88  2**0
+ 19 .comment      00000043  00000000  00000000  00006a87  2**0
                   CONTENTS, READONLY
  20 .debug_frame  00000084  00000000  00000000  00006acc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 0000007e  00000000  00000000  00006b50  2**0
+ 21 .debug_line_str 0000007d  00000000  00000000  00006b50  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:

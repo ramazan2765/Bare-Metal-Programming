@@ -33,34 +33,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := stm32_register_programming_ led_pattern
+BUILD_ARTIFACT_NAME := stm32_led_pattern_register_programming
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-stm32_register_programming_\ led_pattern.elf \
+stm32_led_pattern_register_programming.elf \
 
 MAP_FILES += \
-stm32_register_programming_\ led_pattern.map \
+stm32_led_pattern_register_programming.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-stm32_register_programming_\ led_pattern.list \
+stm32_led_pattern_register_programming.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: stm32_register_programming_\ led_pattern.elf secondary-outputs
+main-build: stm32_led_pattern_register_programming.elf secondary-outputs
 
 # Tool invocations
-stm32_register_programming_\ led_pattern.elf stm32_register_programming_\ led_pattern.map: $(OBJS) $(USER_OBJS) C:\Users\ramaz\STM32CubeIDE\workspace_1.19.0\stm32_register_programming_\ led_pattern\STM32F401CBUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "stm32_register_programming_ led_pattern.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\ramaz\STM32CubeIDE\workspace_1.19.0\stm32_register_programming_ led_pattern\STM32F401CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32_register_programming_ led_pattern.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+stm32_led_pattern_register_programming.elf stm32_led_pattern_register_programming.map: $(OBJS) $(USER_OBJS) C:\Users\ramaz\STM32CubeIDE\workspace_1.19.0\stm32_led_pattern_register_programming\STM32F401CBUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "stm32_led_pattern_register_programming.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\ramaz\STM32CubeIDE\workspace_1.19.0\stm32_led_pattern_register_programming\STM32F401CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32_led_pattern_register_programming.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -69,14 +69,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-stm32_register_programming_\ led_pattern.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "stm32_register_programming_ led_pattern.list"
+stm32_led_pattern_register_programming.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "stm32_led_pattern_register_programming.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout stm32_register_programming_\ led_pattern.elf stm32_register_programming_\ led_pattern.list stm32_register_programming_\ led_pattern.map stm32_register_programming_\\ led_pattern.elf
+	-$(RM) default.size.stdout stm32_led_pattern_register_programming.elf stm32_led_pattern_register_programming.list stm32_led_pattern_register_programming.map
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
