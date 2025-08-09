@@ -1,17 +1,14 @@
-01:58:20 **** Build of configuration Debug for project stm32_led_pattern_register_programming ****
+03:11:59 **** Incremental Build of configuration Debug for project stm32_button_register_programming ****
 make -j8 all 
-arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f401cbux.d" -MT"Startup/startup_stm32f401cbux.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f401cbux.o" "../Startup/startup_stm32f401cbux.s"
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F401CBUx -DSTM32 -DSTM32F4 -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F401CBUx -DSTM32 -DSTM32F4 -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F401CBUx -DSTM32 -DSTM32F4 -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
-arm-none-eabi-gcc -o "stm32_led_pattern_register_programming.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\ramaz\STM32CubeIDE\workspace_1.19.0\stm32_led_pattern_register_programming\STM32F401CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32_led_pattern_register_programming.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: stm32_led_pattern_register_programming.elf
+arm-none-eabi-gcc -o "stm32_button_register_programming.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\ramaz\STM32CubeIDE\workspace_1.19.0\stm32_button_register_programming\STM32F401CBUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="stm32_button_register_programming.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: stm32_button_register_programming.elf
  
-arm-none-eabi-size  stm32_led_pattern_register_programming.elf 
-arm-none-eabi-objdump -h -S stm32_led_pattern_register_programming.elf  > "stm32_led_pattern_register_programming.list"
+arm-none-eabi-size  stm32_button_register_programming.elf 
+arm-none-eabi-objdump -h -S stm32_button_register_programming.elf  > "stm32_button_register_programming.list"
    text	   data	    bss	    dec	    hex	filename
-   1016	      0	   1568	   2584	    a18	stm32_led_pattern_register_programming.elf
+    988	     24	   1568	   2580	    a14	stm32_button_register_programming.elf
 Finished building: default.size.stdout
  
-Finished building: stm32_led_pattern_register_programming.list
+Finished building: stm32_button_register_programming.list
  

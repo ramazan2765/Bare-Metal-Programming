@@ -1,0 +1,5 @@
+../Src/digital_input.c:22:6:Enable_GPIO_Clock	1
+../Src/digital_input.c:26:6:GPIO_Config_Pin_Mode	1
+../Src/digital_input.c:31:9:GPIO_Read_Pin	1
+../Src/digital_input.c:35:6:GPIO_Set_Pin	1
+../Src/digital_input.c:39:6:GPIO_Reset_Pin	1

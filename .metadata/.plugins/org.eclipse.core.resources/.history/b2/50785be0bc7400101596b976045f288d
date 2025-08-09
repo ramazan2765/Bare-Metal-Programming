@@ -1,0 +1,49 @@
+#ifndef DIGITAL_INPUT_H_
+#define DIGITAL_INPUT_H_
+
+//GPIO Pin Number
+typedef enum {
+	Pin_0,
+	Pin_1,
+	Pin_2,
+	Pin_3,
+	Pin_4,
+	Pin_5,
+	Pin_6,
+	Pin_7,
+	Pin_8,
+	Pin_9,
+	Pin_10,
+	Pin_11,
+	Pin_12,
+	Pin_13,
+	Pin_14,
+	Pin_15
+} GPIO_Pin;
+
+//GPIO Pin Mode
+typedef enum {
+	GPIO_INPUT,
+	GPIO_OUTPUT,
+	GPIO_ALTERNATE,
+	GPIO_ANALOG
+} GPIO_Mode;
+
+// GPIO Port representation
+typedef struct {
+	volatile uint32_t *MODER;
+	volatile uint32_t *ODR;
+	volatile uint32_t IDR;
+} GPIO_Port;
+
+void Enable_GPIO_Clock(void);
+void GPIO_Config_Pin_Mode(GPIO_Port *port, GPIO_Pin pin, GPIO_Mode mode);
+uint8_t GPIO_Read_Pin(GPIO_Port *port, GPIO_Pin pin);
+void GPIO_Set_Pin(GPIO_Port *port, GPIO_Pin pin);
+void GPIO_Reset_Pin(GPIO_Port *port, GPIO_Pin pin);
+
+// GPIO Ports extern declarations (defined in .c)
+extern GPIO_Port GPIOA;
+extern GPIO_Port GPIOC;
+
+#endif /* DIGITAL_INPUT_H_ */

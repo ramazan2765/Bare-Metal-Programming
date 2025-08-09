@@ -1,0 +1,25 @@
+
+
+#include <stdint.h>
+#include "digital_input.h"
+
+
+int main(void) {
+    Enable_GPIO_Clock();
+
+    // Configure LED (GPIOA, Pin 5) as output
+    GPIO_Config_Pin_Mode(&GPIOA, PIN_5, GPIO_MODE_OUTPUT);
+
+    // Configure Button (GPIOC, Pin 13) as input
+    GPIO_Config_Pin_Mode(&GPIOC, PIN_13, GPIO_MODE_INPUT);
+
+    while (1) {
+        if (GPIO_Read_Pin(&GPIOC, PIN_13) == 0) { // Button pressed (active low)
+            GPIO_Set_Pin(&GPIOA, PIN_5);          // Turn on LED
+        } else {
+            GPIO_Reset_Pin(&GPIOA, PIN_5);        // Turn off LED
+        }
+    }
+
+    return 0;
+}
